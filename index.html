@@ -1,94 +1,189 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-        }
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 300px;
-            text-align: center;
-        }
-        .login-container input {
-            width: calc(100% - 20px);
-            margin: 10px;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-sizing: border-box;
-        }
-        .login-container button {
-            width: calc(100% - 20px);
-            margin: 10px;
-            padding: 8px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-            box-sizing: border-box;
-        }
-        .login-container button:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsCrap - Anonymous Messaging Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1370/1370958.png" type="image/png">
+  <style>
+    /* Base Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc, #ee0979, #ff00ff, #3a1c71);
+      background-size: 400% 400%;
+      animation: gradientBG 8s ease infinite; /* Adjusted animation duration to 8s */
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 90%;
+      padding: 40px;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      animation: fadeInDown 1s ease-out;
+    }
+
+    h1 span {
+      color: #64ffda;
+    }
+
+    .funny-text {
+      margin-top: 10px;
+      font-size: 1.2rem;
+      color: #a8b2d1;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: #a8b2d1;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .visit-button {
+      background-color: #64ffda;
+      color: #112240;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease-out;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .visit-button:hover {
+      background-color: #45A049;
+      transform: translateY(-2px);
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+
+      .visit-button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      .logo {
+        width: 80px;
+        height: 80px;
+      }
+
+      .funny-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Login</h2>
-        <form id="loginForm">
-            <input type="text" id="username" name="username" placeholder="Username" required><br><br>
-            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
-            <button type="submit">Login</button>
-        </form>
-        <p id="message"></p>
+  <img src="https://cdn-icons-png.flaticon.com/512/6830/6830366.png" alt="WhatsCrap Logo" class="logo">
+
+  <div class="container">
+    <h1>Welcome to <span>WhatsCrap</span></h1>
+    <p>Explore the world of anonymous messaging!</p>
+    <div class="funny-text">
+      Because every message is a gem, even if it's crap!
     </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            fetch('https://proxy098456.glitch.me', { // replace 'your-proxy-project-name' with your actual proxy project name on Glitch
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('message').innerText = data.message;
-                if (data.redirectUrl) {
-                    setTimeout(() => {
-                        window.location.href = data.redirectUrl;
-                    }, 2000); // Redirect after 2 seconds (adjust as needed)
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                document.getElementById('message').innerText = 'An error occurred. Please try again.';
-            });
-        });
-    </script>
+    <a href="https://script.google.com/macros/s/AKfycbwQ_UaMAFtZRivIpfpgtTpiwIzTsv-CnBFrYyz4-8BPrdZObJhgVnNNigrTyQFEjSI/exec" class="visit-button">Login</a>
+  </div>
 </body>
 </html>
